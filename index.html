@@ -1,1016 +1,133 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAMINTRA GUA SHA ACADEMY - ศิลปะแห่งการบำบัดกัวซาอย่างประณีต</title>
-    <!-- Google Fonts: Prompt -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-ivory: #FDFBF7;
-            --text-dark: #2C2523;
-            --gold-accent: #C5A059;
-            --gold-hover: #B08C45;
-            --sapphire-dark: #1A2238;
-            --soft-brown: #8C7A6B;
-            --white: #FFFFFF;
-            --light-gold: rgba(197, 160, 89, 0.12);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Prompt', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-ivory);
-            color: var(--text-dark);
-            line-height: 1.8;
-            padding-bottom: 90px;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Red text class for user editing */
-        .edit-red {
-            color: #E53E3E !important;
-            font-weight: 600;
-        }
-
-        /* Sticky Header */
-        header {
-            background: rgba(253, 251, 247, 0.95);
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--sapphire-dark);
-            letter-spacing: 1px;
-        }
-
-        .btn-header {
-            background-color: var(--gold-accent);
-            color: var(--white);
-            padding: 8px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .btn-header:hover {
-            background-color: var(--gold-hover);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--sapphire-dark);
-            text-align: center;
-            margin-bottom: 25px;
-            line-height: 1.4;
-        }
-
-        .sub-text {
-            text-align: center;
-            color: var(--soft-brown);
-            max-width: 750px;
-            margin: -15px auto 30px auto;
-            font-size: 1.05rem;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding-top: 40px;
-        }
-
-        .badge-launch {
-            display: inline-block;
-            background: var(--light-gold);
-            color: var(--gold-accent);
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .hero h1 {
-            font-size: 2.1rem;
-            color: var(--sapphire-dark);
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .hero-media {
-            width: 100%;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin: 25px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        /* Problem Grid */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
-
-        .card h3 {
-            color: var(--sapphire-dark);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        /* Table Before/After */
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-        }
-
-        th, td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
-        }
-
-        th {
-            background-color: var(--sapphire-dark);
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        /* Accordion for Curriculum & FAQ */
-        .accordion-item {
-            background: var(--white);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            border-radius: 8px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .accordion-header {
-            width: 100%;
-            padding: 16px 20px;
-            text-align: left;
-            background: none;
-            border: none;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--sapphire-dark);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: var(--text-dark);
-            background: #FAF8F5;
-            font-size: 0.95rem;
-        }
-
-        .accordion-item.active .accordion-content {
-            padding: 15px 20px;
-            max-height: 500px;
-            border-top: 1px solid rgba(197, 160, 89, 0.15);
-        }
-
-        /* Pricing Card */
-        .price-card {
-            background: linear-gradient(145deg, #ffffff, #fdfbf7);
-            border: 2px solid var(--gold-accent);
-            border-radius: 20px;
-            padding: 40px 25px;
-            max-width: 520px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.15);
-            position: relative;
-        }
-
-        .price-card .tag {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--sapphire-dark);
-            color: var(--white);
-            padding: 4px 22px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #A0AEC0;
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-
-        .special-price {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin: 10px 0;
-        }
-
-        .bonus-box {
-            background-color: var(--light-gold);
-            border-radius: 8px;
-            padding: 18px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 0.95rem;
-        }
-
-        /* Sticky Line Floating Bar at Bottom */
-        .sticky-bottom-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--sapphire-dark);
-            border-top: 2px solid var(--gold-accent);
-            padding: 12px 20px;
-            z-index: 999;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
-        }
-
-        .sticky-content {
-            max-width: 960px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sticky-text {
-            color: var(--white);
-            font-size: 0.95rem;
-        }
-
-        .btn-line-sticky {
-            background-color: #06C755;
-            color: var(--white);
-            padding: 10px 26px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .btn-line-sticky:hover {
-            transform: scale(1.03);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0 20px 0;
-            font-size: 0.85rem;
-            color: var(--soft-brown);
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.4rem; }
-            .special-price { font-size: 2.3rem; }
-            .sticky-text { display: none; }
-            .sticky-content { justify-content: center; }
-            .btn-line-sticky { width: 100%; justify-content: center; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMINTRA GUA SHA ACADEMY</title>
+  <style>
+    :root {
+      --bg-ivory: #FDFBF7;
+      --text-dark: #2C2523;
+      --gold-accent: #C5A059;
+      --gold-hover: #B08C45;
+      --soft-brown: #8C7A6B;
+      --white: #FFFFFF;
+      --light-gold: rgba(197, 160, 89, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--bg-ivory);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+    header {
+      background: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 1.2rem; font-weight: bold; color: var(--text-dark); letter-spacing: 1px; }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(180deg, #F9F5ED 0%, var(--bg-ivory) 100%);
+    }
+    .hero h1 { font-size: 2.2rem; color: var(--gold-accent); margin-bottom: 15px; }
+    .hero p { font-size: 1.1rem; color: var(--soft-brown); max-width: 600px; margin: 0 auto 25px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+    .card h2 { color: var(--gold-accent); font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid var(--light-gold); padding-bottom: 8px; }
+    .card h3 { color: var(--soft-brown); font-size: 1.2rem; margin: 15px 0 10px; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+    li::before { content: "•"; color: var(--gold-accent); position: absolute; left: 0; font-weight: bold; }
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      padding: 12px 20px;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .price-tag { font-size: 1.1rem; }
+    .price-tag span { font-size: 1.4rem; font-weight: bold; color: #D9534F; }
+    .btn-line {
+      background-color: #06C755;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">SAMINTRA ACADEMY</div>
-            <a href="#register" class="btn-header">สมัครเรียน</a>
-        </div>
-    </header>
+  <header>
+    <div class="logo">SAMINTRA ACADEMY</div>
+  </header>
 
-    <div class="container">
+  <section class="hero">
+    <h1>SAMINTRA GUA SHA ACADEMY</h1>
+    <p>ถ่ายทอดความรู้ศาสตร์กัวซาอย่างสมบูรณ์แบบ ยกระดับวิชาชีพด้วยเทคนิคเฉพาะทาง</p>
+  </section>
 
-        <!-- 1. HERO SECTION -->
-        <section class="hero">
-            <span class="badge-launch">✨ คอร์สเปิดตัวพิเศษ Special Launch Edition</span>
-            <h1>หากความเชื่อเดิมบอกว่า “กัวซาต้องลงแรงหนักถึงจะเห็นผล”<br>คุณอาจกำลังสร้างความบอบช้ำ... โดยไม่เคยสัมผัสถึงปมปัญหาที่แท้จริง</h1>
-            <p class="sub-text">
-                ก้าวข้ามการจำท่าทาง สู่ศิลปะแห่งการอ่านร่างกายอย่างลึกซึ้ง ถ่ายทอดน้ำหนักมืออย่างแม่นยำ และสร้าง "สัมผัสแห่งการเยียวยา" ที่ผู้รับบริการไว้วางใจตั้งแต่วินาทีแรก
-            </p>
-            
-            <img src="<span class='edit-red'>https://via.placeholder.com/1000x450?text=ใส่+URL+รูปภาพครูจูนสปาหรูที่นี่</span>" alt="SAMINTRA GUA SHA" class="hero-media">
-        </section>
-
-        <!-- 2. PROBLEM SECTION -->
-        <section>
-            <h2>คุณกำลังทุ่มเทแรงกายมากขึ้น...<br>แต่ผลลัพธ์กลับไม่ชัดเจนขึ้นใช่ไหม?</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>1. ยิ่งเค้นแรง ยิ่งเกิดแรงต้าน</h3>
-                    <p>ผู้รับบริการรู้สึกเจ็บ เกร็ง และบอบช้ำ แทนที่จะผ่อนคลายลึก</p>
-                </div>
-                <div class="card">
-                    <h3>2. ติดดักในกรอบเดิม</h3>
-                    <p>จำท่าได้เป็นส่วนๆ แต่ปรับเปลี่ยนตามสรีระที่แตกต่างกันไม่ได้</p>
-                </div>
-                <div class="card">
-                    <h3>3. ขาดความมั่นใจในสัมผัส</h3>
-                    <p>ไม่แน่ใจในทิศทาง น้ำหนักมือ และจุดเซนซิทีฟที่ต้องระวัง</p>
-                </div>
-                <div class="card">
-                    <h3>4. แลกความสุขด้วยความเหนื่อยล้า</h3>
-                    <p>จบเคสแล้วผู้บำบัดปวดมือ ข้อมือ และหมดพลังงานเสียเอง</p>
-                </div>
-                <div class="card">
-                    <h3>5. ถูกตัดราคาด้วยบริการทั่วไป</h3>
-                    <p>บริการดูไม่ต่างจากร้านทั่วไป จึงถูกเปรียบเทียบด้วยราคาอยู่เสมอ</p>
-                </div>
-                <div class="card">
-                    <h3>6. สื่อสารแก่นแท้ไม่ได้</h3>
-                    <p>มีประสบการณ์ แต่ไม่สามารถถ่ายทอดมูลค่าของศาสตร์ให้ลูกค้าเข้าใจได้</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. TRANSFORMATION SECTION -->
-        <section>
-            <h2>เปลี่ยนการ “ขูดตามขั้นตอน” สู่การ “บำบัดด้วยความเข้าใจ”</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>มิติเดิม</th>
-                            <th>สู่การเป็นผู้บำบัดของ SAMINTRA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>พึ่งพาแรงกายในการกดขูด</td>
-                            <td>ใช้ความเข้าใจในกายวิภาคขับเคลื่อนสัมผัส</td>
-                        </tr>
-                        <tr>
-                            <td>จดจำท่าทางแบบแยกส่วน</td>
-                            <td>ร้อยเรียงการบำบัดอย่างสอดคล้องเป็นองค์รวม</td>
-                        </tr>
-                        <tr>
-                            <td>กังวลเมื่อต้องลงน้ำหนัก</td>
-                            <td>รู้ชัดในจุดสำคัญ องศา และระดับแรงที่ปลอดภัย</td>
-                        </tr>
-                        <tr>
-                            <td>ผู้บำบัดสูญเสียพลังงานเหนื่อยล้า</td>
-                            <td>จัดวางสรีระ จังหวะ และพลังงานอย่างสมดุล</td>
-                        </tr>
-                        <tr>
-                            <td>นำเสนอการบริการด้วยราคา</td>
-                            <td>ส่งมอบและสื่อสารคุณค่าด้วยความเชี่ยวชาญ</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 4. LAUNCH FOCUS COURSE (คอ บ่า ไหล่) -->
-        <section style="background: rgba(197, 160, 89, 0.05); padding: 30px; border-radius: 16px; margin: 30px 0;">
-            <h2 style="margin-bottom: 10px;">หลักสูตรเน้นย้ำเปิดตัว: กัวซาบำบัด คอ บ่า ไหล่</h2>
-            <p class="sub-text">เจาะลึกมิติมัสเซิล Trapezius, Levator Scapulae และแนวร่องสะบัก เพื่อสลายปมตึงสะสมอย่างประณีต</p>
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;">✦ การประเมินโครงสร้างและอ่านสภาวะตึงเกร็งก่อนลงมือ</li>
-                <li style="margin-bottom: 10px;">✦ ศิลปะการใช้องศาอุปกรณ์เพื่อสลายพังผืดโดยไม่ต้องเค้นแรงกาย</li>
-                <li style="margin-bottom: 10px;">✦ การจัด Flow บำบัด 30-45 นาที เพื่อสร้างเป็น Signature Treatment</li>
-                <li style="margin-bottom: 10px;"><span class="edit-red">[เติมไฮไลต์พิเศษเฉพาะคอร์สคอบ่าไหล่ของคุณตรงนี้]</span></li>
-            </ul>
-        </section>
-
-        <!-- 5. 16 LESSONS CURRICULUM -->
-        <section>
-            <h2>องค์ความรู้หลักสูตรสมบูรณ์แบบ 16 บทเรียน</h2>
-            <p class="sub-text">คลิกเพื่อดูรายละเอียดเนื้อหาในแต่ละบทเรียน</p>
-
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 1 ฐานจิตและสมาธิของผู้บำบัด (Mindful Healing) <span>+</span></button>
-                <div class="accordion-content">ปรับสภาวะจิตใจ ลมหายใจ และสัมผัสให้รวมเป็นหนึ่งด้วย Love, Compassion & Mindfulness</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 2 ปรัชญาและแก่นแท้ของศาสตร์กัวซา <span>+</span></button>
-                <div class="accordion-content">เข้าใจกลไกการตอบสนองของชั้นผิว ระบบไหลเวียน และการเตรียมผู้รับบริการด้วยความประณีต</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 3 กายวิภาคศาสตร์เพื่อการบำบัด <span>+</span></button>
-                <div class="accordion-content">เจาะลึกชั้นผิว กล้ามเนื้อ พังผืด เส้นประสาท และจุดระมัดระวังสำคัญที่ไม่ควรกดแรง</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 4 การประเมินและอ่านสภาวะร่างกาย <span>+</span></button>
-                <div class="accordion-content">ฝึกซักประวัติ สังเกตท่าทาง และประเมินความตึงเกร็งเพื่อออกแบบการบำบัดเฉพาะบุคคล</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 5 กัวซาเพื่อการฟื้นฟูสุขภาวะ <span>+</span></button>
-                <div class="accordion-content">กลไกการกระตุ้นระบบไหลเวียน คลายปวดตึงสะสม และการส่งเสริมการผ่อนคลายลึก</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 6 กัวซาเพื่อความงามและผิวพรรณ <span>+</span></button>
-                <div class="accordion-content">การดูแลผิวหน้า ลดความบวม ผ่อนคลายมัสเซิลใบหน้า และคืนความสดชื่นรื่นรมย์</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 7 ศิลปะแห่งทิศทาง น้ำหนัก และจังหวะ <span>+</span></button>
-                <div class="accordion-content">ฝึกการเดินเส้นกัวซาอย่างแม่นยำ องศาการถืออุปกรณ์ และน้ำหนักที่พอดีต่อเนื้อเยื่อ</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 8 การเลือกสรรอุปกรณ์และน้ำมันบำบัด <span>+</span></button>
-                <div class="accordion-content">คัดสรรหินกัวซา น้ำมันบำบัด และมาตรฐานการทำความสะอาดฆ่าเชื้อระดับสปาหรู</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 9 การบำบัดใบหน้า ศีรษะ ใบหู และลำคอ <span>+</span></button>
-                <div class="accordion-content">ลำดับทิศทางและจุดสำคัญเพื่อปลดปล่อยความล้า คืนความสดชื่นสู่ศีรษะและใบหน้า</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 10 การคลายความตึงเครียด คอ บ่า ไหล่ <span>+</span></button>
-                <div class="accordion-content">เจาะลึก Trapezius และ Levator Scapulae เพื่อคลายพังผืดสะสมอย่างปลอดภัยและลึกซึ้ง</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 11 การดูแลแขน มือ และนิ้วมือ <span>+</span></button>
-                <div class="accordion-content">ปลดปล่อยความล้าแนวแขน ฝ่ามือ และนิ้วมือ พร้อมการคุ้มครองเส้นประสาทอ่อนโยน</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 12 การดูแลลำตัวส่วนหน้าอย่างประณีต <span>+</span></button>
-                <div class="accordion-content">ดูแลหน้าอก หน้าท้อง และเอว ด้วยสัมผัสที่เคารพจังหวะหายใจและความเป็นส่วนตัว</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 13 การบำบัดหลังและสะโพก <span>+</span></button>
-                <div class="accordion-content">ลงลึกแนว Paraspinal ร่องสะบัก และสะโพก เพื่อปรับสมดุลแผ่นหลังอย่างเป็นระบบ</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 14 การดูแลขาและเท้า <span>+</span></button>
-                <div class="accordion-content">ลดความตึงล้าน่อง ฝ่าเท้า และข้อเท้า เพื่อกระตุ้นการไหลเวียนกลับคืนสู่หัวใจ</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 15 Full Body Gua Sha Flow <span>+</span></button>
-                <div class="accordion-content">ร้อยเรียงท่วงท่าเต็มตัวสำหรับโปรแกรม 60, 90 และ 120 นาที ไร้รอยต่อ</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">บทที่ 16 การยกระดับบริการและวิชาชีพ <span>+</span></button>
-                <div class="accordion-content">การตั้งราคา การสื่อสารคุณค่า การสร้างแบรนด์พรีเมียม และเส้นทางสู่ผู้เชี่ยวชาญ</div>
-            </div>
-        </section>
-
-        <!-- 6. INSTRUCTOR SECTION -->
-        <section style="text-align: center;">
-            <h2>ผู้ถ่ายทอดองค์ความรู้</h2>
-            <p style="font-size: 1.2rem; font-weight: 600; color: var(--sapphire-dark);">ครูจูน — ผู้ก่อตั้ง SAMINTRA GUA SHA ACADEMY</p>
-            <p style="color: var(--soft-brown); max-width: 700px; margin: 15px auto;">
-                "เป้าหมายของครู ไม่ใช่การให้คุณจดจำเพียงจังหวะมือของครู... แต่คือการช่วยให้คุณเข้าถึงความหมายในมือของตัวคุณเอง และรู้ว่าทุกสัมผัสที่คุณมอบให้นั้น มีพลังแห่งการเยียวยาเพียงใด"
-            </p>
-        </section>
-
-        <!-- 7. PRICING SECTION -->
-        <section id="register">
-            <div class="price-card">
-                <div class="tag">SPECIAL LAUNCH OFFER</div>
-                <h3 style="color: var(--sapphire-dark); font-size: 1.3rem; margin-top: 10px;">คอร์สออนไลน์ กัวซาบำบัด คอ บ่า ไหล่</h3>
-                <p style="color: var(--soft-brown); font-size: 0.9rem;">(เข้าเรียนออนไลน์ ทบทวนความรู้ได้ตลอดชีวิต)</p>
-                
-                <div class="old-price">ราคาปกติ <span class="edit-red">3,500</span> บาท</div>
-                <div class="special-price edit-red">1,290.-</div>
-                <p style="color: var(--gold-accent); font-weight: 500; font-size: 0.9rem;">
-                    สิทธิ์ราคาพิเศษจำกัดเพียง <span class="edit-red">30</span> ท่านแรกเท่านั้น
-                </p>
-
-                <div class="bonus-box">
-                    <strong>🎁 สิทธิ์พิเศษที่จะได้รับฟรีทันที:</strong>
-                    <ul style="padding-left: 20px; margin-top: 8px;">
-                        <li>คู่มือภาพ Atlas แนวพังผืด คอ บ่า ไหล่ (<span class="edit-red">มูลค่า 590.-</span>)</li>
-                        <li>สิทธิ์ส่งการบ้านและรับคำแนะนำจากครูจูน (<span class="edit-red">1 เดือนเต็ม</span>)</li>
-                        <li><span class="edit-red">[ระบุของแถมเพิ่มเติม เช่น หินกัวซา หรือส่วนลดคอร์สเต็ม]</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. FAQ SECTION -->
-        <section>
-            <h2>คำถามที่พบบ่อย (FAQ)</h2>
-            <div class="accordion-item">
-                <button class="accordion-header">ไม่มีพื้นฐานนวดหรือสปา เรียนได้ไหม? <span>+</span></button>
-                <div class="accordion-content">เรียนได้แน่นอนค่ะ บทเรียนเริ่มจากรากฐานที่เข้าใจง่าย และค่อยๆ เชื่อมโยงไปสู่การปฏิบัติจริงอย่างเป็นขั้นตอน</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">เรียนออนไลน์แล้วทำตามได้จริงหรือ? <span>+</span></button>
-                <div class="accordion-content">เรียนได้จริงค่ะ วิดีโอใช้องศาการถ่ายที่เห็นทิศทาง น้ำหนักมือ และสรีระอย่างชัดเจน พร้อมคู่มือภาพประกอบเปิดดูทบทวนได้ตลอด</div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">หลักสูตรนี้ใช้รักษาโรคได้หรือไม่? <span>+</span></button>
-                <div class="accordion-content">หลักสูตรมุ่งเน้นการดูแลสุขภาวะ การผ่อนคลาย และการปรับสมดุล ไม่ใช่การรักษาโรคหรือทดแทนการแพทย์แผนปัจจุบัน</div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <p><strong>SAMINTRA GUA SHA ACADEMY</strong></p>
-            <p style="margin: 8px 0;">“ถ่ายทอดความเข้าใจในสรีระ ผ่านสัมผัสอันอ่อนโยน มีสติ และทรงคุณค่า”</p>
-            <p style="font-size: 0.78rem; opacity: 0.8; margin-top: 15px;">
-                © 2026 SAMINTRA GUA SHA. All Rights Reserved. <br>
-                <span class="edit-red">[นโยบายความเป็นส่วนตัว PDPA | ข้อกำหนดการใช้งาน]</span>
-            </p>
-        </footer>
-
+  <div class="container">
+    
+    <div class="card">
+      <h2>หลักสูตรอบรมกัวซาเพื่อสุขภาพและบรรเทาอาการ</h2>
+      <p>เรียนรู้โครงสร้างกล้ามเนื้อ สายเส้นเอ็น และระบบไหลเวียนโลหิต พร้อมเทคนิคการลงน้ำหนักที่ถูกต้อง Safe & Effective</p>
     </div>
 
-    <!-- 9. STICKY LINE OA FLOATING BAR -->
-    <div class="sticky-bottom-bar">
-        <div class="sticky-content">
-            <div class="sticky-text">
-                <strong>คอร์สเปิดตัว คอ บ่า ไหล่</strong> ราคาพิเศษเพียง <span class="edit-red">1,290.-</span> (จากปกติ <span class="edit-red">3,500.-</span>)
-            </div>
-            <a href="<span class='edit-red'>https://line.me/ti/p/@YOUR_LINE_ID</span>" target="_blank" class="btn-line-sticky">
-                💬 สมัคร/สอบถามทาง LINE
-            </a>
-        </div>
+    <div class="card">
+      <h2>โครงสร้างเนื้อหาหลักสูตร</h2>
+      <h3>บทที่ 1: ทฤษฎีพื้นฐานและโครงสร้างร่างกาย</h3>
+      <ul>
+        <li>โครงสร้างชั้นผิวหนัง กล้ามเนื้อ และพาสเชีย (Fascia)</li>
+        <li>ระบบเส้นเลือดและระบบน้ำเหลืองที่สำคัญ</li>
+        <li>ข้อควรระวังและบริเวณที่ห้ามลงน้ำหนักแรง</li>
+      </ul>
+
+      <h3>บทที่ 2: การประเมินร่างกายก่อนการนวด</h3>
+      <ul>
+        <li>การสังเกตท่าทาง สมดุลคอ คาง และไหล่</li>
+        <li>การคลำตรวจจุดตึงเกร็งและ Trigger Points</li>
+        <li>การวางแผนการปรับสมดุลรายบุคคล</li>
+      </ul>
     </div>
 
-    <!-- JAVASCRIPT FOR ACCORDION -->
-    <script>
-        document.querySelectorAll('.accordion-header').forEach(button => {
-            button.addEventListener('click', () => {
-                const accordionItem = button.parentElement;
-                accordionItem.classList.toggle('active');
-                
-                const icon = button.querySelector('span');
-                if (accordionItem.classList.contains('active')) {
-                    icon.textContent = '-';
-                } else {
-                    icon.textContent = '+';
-                }
-            });
-        });
-    </script>
+    <div class="card" style="text-align: center;">
+      <h2>สอบถามรายละเอียด & สมัครเรียน</h2>
+      <p style="margin-bottom: 20px;">รับจำนวนจำกัดต่อรอบ เพื่อการดูแลอย่างทั่วถึง</p>
+      <a href="https://line.me" class="btn-line" target="_blank">สมัคร / สอบถามทาง LINE</a>
+    </div>
+
+  </div>
+
+  <div class="sticky-bar">
+    <div class="price-tag">ราคาพิเศษ <span>1,290.-</span> <small><s style="color:#999;">3,500.-</s></small></div>
+    <a href="https://line.me" class="btn-line" target="_blank">สมัครเรียน LINE</a>
+  </div>
+
 </body>
 </html>
-* **ประโยชน์ของกัวซา:** [พิมพ์สรุปประโยชน์หลักๆ]
-* **กลไกการตอบสนองของร่างกาย:** [พิมพ์อธิบายการเกิดรอยแดง/ซา]
-* **การไหลเวียนเลือดและน้ำเหลือง:** [พิมพ์อธิบายการกระตุ้นระบบไหลเวียน]
-* **การทำงานของพังผืด:** [พิมพ์อธิบายว่ากัวซาช่วยคลายพังผืดอย่างไร]
-* **หลักการเลือกแรงกด:** [พิมพ์บอกระดับแรงกด เบา-กลาง-หนัก]
-* **หลักการเลือกทิศทาง:** [พิมพ์บอกทิศทางการขูดเบื้องต้น]
-* **การเลือกอุปกรณ์:** [พิมพ์วิธีเลือกอุปกรณ์ให้เหมาะกับงาน]
-* **การเตรียมผู้รับบริการ:** [พิมพ์การจัดท่านั่ง/นอนของผู้รับบริการ]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **ภาพประวัติกัวซา:** [ใส่ชื่อไฟล์รูปประวัติศาสตร์]
-* [ ] **ภาพหลักการทำงาน:** [ใส่ชื่อไฟล์รูปไดอะแกรมการทำงาน]
-* [ ] **ภาพเปรียบเทียบก่อน–หลัง:** [ใส่ชื่อไฟล์รูป Before-After]
-* [ ] **อินโฟกราฟิกสรุปหลักการ:** [ใส่ชื่อไฟล์รูปสรุปหลักการ]
-
----
-
-## 📌 บทที่ 3 : กายวิภาคศาสตร์สำหรับกัวซา
-[คำแนะนำ: บทนี้คือความรู้ทางกายวิภาค โครงสร้างชั้นผิว กล้ามเนื้อ และจุดอันตรายที่ต้องระวัง]
-
-### 1. ทฤษฎี (Theory)
-* **โครงสร้างผิวหนัง:** [พิมพ์อธิบายชั้นผิวหนัง]
-* **ชั้นไขมัน:** [พิมพ์อธิบายชั้นไขมันใต้ผิวหนัง]
-* **กล้ามเนื้อ:** [พิมพ์รายชื่อกล้ามเนื้อชิ้นสำคัญที่ต้องเจอ]
-* **พังผืด:** [พิมพ์อธิบายชั้นพังผืด (Fascia)]
-* **ระบบเลือด:** [พิมพ์อธิบายแนวเส้นเลือดสำคัญ]
-* **ระบบน้ำเหลือง:** [พิมพ์อธิบายต่อมน้ำเหลืองและแนวระบายน้ำเหลือง]
-* **ระบบประสาท:** [พิมพ์อธิบายข้อควรระวังเรื่องเส้นประสาท]
-* **การตอบสนองของเนื้อเยื่อ:** [พิมพ์อธิบายอาการบวม/แดงของเนื้อเยื่อ]
-* **จุดสำคัญที่ต้องระวัง:** [พิมพ์ระบุจุดอันตรายห้ามลงน้ำหนักแรง]
-* **โครงสร้างที่ไม่ควรกด:** [พิมพ์ระบุกระดูกหรือจุดห้ามกด]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **ภาพชั้นผิว:** [ใส่ชื่อไฟล์รูป Anatomy ชั้นผิว]
-* [ ] **ภาพกล้ามเนื้อ:** [ใส่ชื่อไฟล์รูป แผนผังกล้ามเนื้อ]
-* [ ] **ภาพน้ำเหลือง:** [ใส่ชื่อไฟล์รูป แผนผังระบบน้ำเหลือง]
-* [ ] **ภาพเส้นเลือด:** [ใส่ชื่อไฟล์รูป แผนผังเส้นเลือด]
-* [ ] **อินโฟกราฟิกกายวิภาค:** [ใส่ชื่อไฟล์รูป สรุปกายวิภาคสำหรับกัวซา]
-
----
-
-## 📌 บทที่ 4 : การประเมินร่างกายก่อนการบำบัด
-[คำแนะนำ: บทนี้คือขั้นตอนการตรวจเช็กร่างกายผู้รับบริการก่อนเริ่มลงมือกัวซา]
-
-### 1. ทฤษฎี (Theory)
-* **การซักประวัติ:** [พิมพ์รายการคำถามที่ต้องถามผู้รับบริการ เช่น โรคประจำตัว]
-* **การสังเกตท่าทาง:** [พิมพ์วิธีสังเกตไหล่เอียง คอยื่น หรือ posture]
-* **การประเมินกล้ามเนื้อ:** [พิมพ์วิธีคลำตึง/ก้อนเกร็งของกล้ามเนื้อ]
-* **การประเมินการเคลื่อนไหว:** [พิมพ์วิธีทดสอบการหมุนคอ/ยกแขน]
-* **การประเมินสีผิว:** [พิมพ์วิธีสังเกตสีผิวและความเย็น/ร้อน]
-* **การประเมินความตึง:** [พิมพ์ระดับความตึงพังผืด]
-* **การประเมินความเจ็บ:** [พิมพ์เกณฑ์การวัดระดับความเจ็บ 1-10]
-* **การวางแผนการบำบัด:** [พิมพ์วิธีนำข้อมูลมาวางแผนการกัวซา]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **อินโฟกราฟิกการประเมิน:** [ใส่ชื่อไฟล์รูปขั้นตอนการประเมิน]
-* [ ] **ตารางประเมิน:** [ใส่แบบฟอร์มการประเมิน PDF หรือไฟล์รูป]
-* [ ] **ภาพตัวอย่างการตรวจร่างกาย:** [ใส่ชื่อไฟล์รูปสาธิตการตรวจ]
-
----
-
-## 📌 บทที่ 5 : ประโยชน์ของกัวซาด้านสุขภาพ
-[คำแนะนำ: บทนี้เน้นเรื่องผลลัพธ์ในการบำบัดอาการปวดและปรับสมดุลสุขภาพ]
-
-### 1. ทฤษฎี (Theory)
-* **กระตุ้นการไหลเวียนเลือด:** [พิมพ์อธิบายว่าช่วยเรื่องการไหลเวียนอย่างไร]
-* **กระตุ้นระบบน้ำเหลือง:** [พิมพ์อธิบายการขับของเสีย]
-* **ลดการอักเสบ:** [พิมพ์อธิบายกลไกลดการอักเสบเรื้อรัง]
-* **คลายกล้ามเนื้อและพังผืด:** [พิมพ์อธิบายการคลายปมกล้ามเนื้อ (Trigger Points)]
-* **ฟื้นฟูการทำงานของร่างกาย:** [พิมพ์อธิบายการคืนความยืดหยุ่น]
-* **ลดความเครียด:** [พิมพ์อธิบายผลต่อระบบประสาทออโตโนมิก]
-* **ส่งเสริมการพักผ่อน:** [พิมพ์อธิบายการช่วยเรื่องการนอนหลับ]
-* **สรุปประโยชน์ด้านสุขภาพ:** [พิมพ์สรุปภาพรวมด้านสุขภาพ]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **อินโฟกราฟิก 5 หน้า:** [ใส่ชื่อไฟล์รูปสรุปประโยชน์ 5 ด้าน]
-* [ ] **ภาพระบบเลือด:** [ใส่ชื่อไฟล์รูป]
-* [ ] **ภาพระบบน้ำเหลือง:** [ใส่ชื่อไฟล์รูป]
-* [ ] **ภาพกล้ามเนื้อ:** [ใส่ชื่อไฟล์รูป]
-
----
-
-## 📌 บทที่ 6 : ประโยชน์ของกัวซาด้านความงาม
-[คำแนะนำ: บทนี้เน้นเรื่องการยกกระชับ ฟื้นฟูผิวพรรณ และการชะลอวัย]
-
-### 1. ทฤษฎี (Theory)
-* **กระตุ้นการไหลเวียนของผิว:** [พิมพ์อธิบายการนำสารอาหารมาเลี้ยงผิว]
-* **เพิ่มความกระจ่างใส:** [พิมพ์อธิบายการผลัดเซลล์ผิวและเลือดฝาด]
-* **ลดอาการบวม:** [พิมพ์อธิบายการรีดน้ำเหลืองลดบวมบนใบหน้า]
-* **กระชับผิว:** [พิมพ์อธิบายการกระตุ้นคอลลาเจน/อิลาสติน]
-* **ลดริ้วรอย:** [พิมพ์อธิบายการคลายเกร็งกล้ามเนื้อใบหน้า]
-* **ฟื้นฟูผิว:** [พิมพ์อธิบายการซ่อมแซมเซลล์ผิว]
-* **การดูแลผิวอย่างปลอดภัย:** [พิมพ์ข้อควรระวังเพื่อไม่ให้ผิวอักเสบ]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **อินโฟกราฟิก 7 หน้า:** [ใส่ชื่อไฟล์รูปงานความงาม]
-* [ ] **ภาพใบหน้า:** [ใส่ชื่อไฟล์รูปจุดสำคัญบนใบหน้า]
-* [ ] **ภาพก่อน–หลัง:** [ใส่ชื่อไฟล์รูปผลลัพธ์ Before-After]
-* [ ] **ภาพชั้นผิว:** [ใส่ชื่อไฟล์รูปโครงสร้างชั้นผิวความงาม]
-
----
-
-## 📌 บทที่ 7 : หลักการและทิศทางของกัวซา
-[คำแนะนำ: บทนี้คือหัวใจสำคัญของเทคนิค ทิศทาง ลูกศรเดินเส้น และน้ำหนักมือ]
-
-### 1. ทฤษฎี (Theory)
-* **หลักการเดินเส้น:** [พิมพ์อธิบายการลากแผ่นกัวซาอย่างเป็นจังหวะ]
-* **เหตุผลของทิศทาง:** [พิมพ์อธิบายว่าทำไมต้องขูดออก/ขูดลง/ขูดตามน้ำเหลือง]
-* **ข้อยกเว้น:** [พิมพ์ระบุบริเวณที่ห้ามขูดตามทิศปกติ]
-* **ลำดับการทำงาน:** [พิมพ์บอกลำดับการทำก่อน-หลัง]
-* **หลักการซ้าย–ขวา:** [พิมพ์บอกการทำปรับสมดุลสองข้าง]
-* **การลงน้ำหนัก:** [พิมพ์วิธีลงน้ำหนักแผ่นกัวซาให้พอดี]
-* **รูปแบบการขูดมาตรฐาน:** [พิมพ์อธิบายองศาการถือแผ่นกัวซา เช่น 45 องศา]
-* **สรุปแนวทางปฏิบัติ:** [พิมพ์ข้อสรุปสั้นๆ ให้จำง่าย]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **อินโฟกราฟิกทิศทาง:** [ใส่ชื่อไฟล์รูปแนวเส้น]
-* [ ] **ลูกศรการเดินเส้น:** [ใส่ชื่อไฟล์รูป Diagram ลูกศร]
-* [ ] **ภาพตัวอย่างการขูด:** [ใส่ชื่อไฟล์รูปสาธิตวิธีขูด]
-* [ ] **ตารางทิศทางมาตรฐาน:** [ใส่ชื่อไฟล์รูปตารางสรุป]
-
----
-
-## 📌 บทที่ 8 : อุปกรณ์และผลิตภัณฑ์
-[คำแนะนำ: บทนี้ว่าด้วยการเลือกหินกัวซา น้ำมัน บรรจุภัณฑ์ และการสุขาภิบาล]
-
-### 1. ทฤษฎี (Theory)
-* **ประเภทของหินกัวซา:** [พิมพ์ระบุชนิดหิน เช่น หยก หินเขี้ยวหนุมาน เขาสัตว์ ฯลฯ]
-* **การเลือกใช้อุปกรณ์:** [พิมพ์วิธีเลือกรูปทรงหินให้เหมาะกับจุดต่างๆ]
-* **น้ำมันกัวซา:** [พิมพ์อธิบายคุณสมบัติน้ำมันหล่อลื่นที่เหมาะสม]
-* **ขวดปั๊ม:** [พิมพ์วิธีเลือกใช้งานขวดปั๊ม]
-* **ขวดบีบ:** [พิมพ์วิธีเลือกใช้งานขวดบีบ]
-* **ขวดดรอปเปอร์:** [พิมพ์วิธีเลือกใช้งานขวดหยด]
-* **สเปรย์:** [พิมพ์การใช้น้ำแร่/สเปรย์ทำความสะอาด]
-* **การทำความสะอาดอุปกรณ์:** [พิมพ์ขั้นตอนฆ่าเชื้อแผ่นกัวซา]
-* **การเก็บรักษา:** [พิมพ์วิธีเก็บรักษากล่อง/หินไม่ให้แตกหัก]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **ภาพหินกัวซา:** [ใส่ชื่อไฟล์รูปอุปกรณ์หินแต่ละชนิด]
-* [ ] **ภาพน้ำมัน:** [ใส่ชื่อไฟล์รูปน้ำมันและผลิตภัณฑ์]
-* [ ] **ภาพขวดแต่ละประเภท:** [ใส่ชื่อไฟล์รูปบรรจุภัณฑ์]
-* [ ] **อินโฟกราฟิกอุปกรณ์:** [ใส่ชื่อไฟล์รูปสรุปการเลือกอุปกรณ์]
-
----
-
-## 📌 บทที่ 9 : เทคนิคกัวซาใบหน้า ศีรษะ หู และลำคอ
-[คำแนะนำ: บทนี้เน้นภาคปฏิบัติบริเวณส่วนบนของร่างกาย]
-
-### 1. ทฤษฎี (Theory)
-* **ลำดับการทำ:** [พิมพ์ลำดับขั้นตอน 1, 2, 3]
-* **จุดสำคัญ:** [พิมพ์ระบุจุดกดบนใบหน้า ศีรษะ หู และลำคอ]
-* **ทิศทางการเดินเส้น:** [พิมพ์บอกทิศทางการขูดแต่ละจุด]
-* **ข้อควรระวัง:** [พิมพ์ระบุจุดเบามือ หรือจุดห้ามกด]
-* **การประเมินผลหลังทำ:** [พิมพ์วิธีเช็กความผ่อนคลายและยกกระชับ]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas การเดินเส้น:** [ใส่ชื่อไฟล์รูป Atlas ผังเดินเส้นส่วนหัว-คอ]
-* [ ] **ภาพใบหน้า:** [ใส่ชื่อไฟล์รูป]
-* [ ] **ภาพศีรษะ:** [ใส่ชื่อไฟล์รูป]
-* [ ] **ภาพใบหู:** [ใส่ชื่อไฟล์รูป]
-* [ ] **ภาพลำคอ:** [ใส่ชื่อไฟล์รูป]
-
----
-
-## 📌 บทที่ 10 : เทคนิคกัวซาคอ บ่า ไหล่
-[คำแนะนำ: บทนี้เน้นแก้ปัญหาออฟฟิศซินโดรมและความเกร็งตึงช่วงบน]
-
-### 1. ทฤษฎี (Theory)
-* **แนวเส้นมาตรฐาน:** [พิมพ์อธิบายแนวเส้นคอ บ่า ไหล่]
-* **กล้ามเนื้อสำคัญ:** [พิมพ์ชื่อกล้ามเนื้อ Trapezius / Levator Scapulae ฯลฯ]
-* **การลดออฟฟิศซินโดรม:** [พิมพ์เทคนิคคลายก้อนตึงบ่า]
-* **การประเมินก่อน–หลัง:** [พิมพ์วิธีเช็กความเบาสบายไหล่]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas คอ บ่า ไหล่:** [ใส่ชื่อไฟล์รูป Atlas คอ บ่า ไหล่]
-* [ ] **ภาพแนวเส้น:** [ใส่ชื่อไฟล์รูปแนวเส้นกัวซา]
-* [ ] **อินโฟกราฟิก:** [ใส่ชื่อไฟล์รูปสรุปท่าทาง]
-
----
-
-## 📌 บทที่ 11 : เทคนิคกัวซาแขนและมือ
-[คำแนะนำ: บทนี้เน้นแก้ปัญหานิ้วล็อก ปวดแขน ปวดฝ่ามือ]
-
-### 1. ทฤษฎี (Theory)
-* **แขนด้านหน้า:** [พิมพ์ทิศทางและเทคนิค]
-* **แขนด้านหลัง:** [พิมพ์ทิศทางและเทคนิค]
-* **ฝ่ามือ:** [พิมพ์เทคนิคกดจุดคลายเส้นฝ่ามือ]
-* **นิ้วมือ:** [พิมพ์เทคนิคกัวซารายไล่นิ้ว]
-* **การเรียงลำดับการทำ:** [พิมพ์ลำดับขั้นตอนแขนถึงนิ้ว]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas แขน:** [ใส่ชื่อไฟล์รูป Atlas แขน]
-* [ ] **Atlas มือ:** [ใส่ชื่อไฟล์รูป Atlas มือ]
-* [ ] **Atlas นิ้วมือ:** [ใส่ชื่อไฟล์รูป Atlas นิ้วมือ]
-
----
-
-## 📌 บทที่ 12 : เทคนิคกัวซาลำตัว
-[คำแนะนำ: บทนี้เน้นช่วงหน้าอก ช่องท้อง และสีข้าง เพื่อปรับระบบย่อยและลมหายใจ]
-
-### 1. ทฤษฎี (Theory)
-* **หน้าอก:** [พิมพ์เทคนิคกัวซาหน้าอกอย่างเบามือ]
-* **ช่องท้อง:** [พิมพ์เทคนิคกัวซาหน้าท้องตามเข็มนาฬิกา]
-* **เอว:** [พิมพ์เทคนิคกัวซาโค้งเอว]
-* **สีข้าง:** [พิมพ์เทคนิคกัวซาร่องซี่โครง]
-* **การเดินเส้น:** [พิมพ์ทิศทางเดินเส้นลำตัว]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas ลำตัว:** [ใส่ชื่อไฟล์รูป Atlas ลำตัว]
-* [ ] **Atlas หน้าท้อง:** [ใส่ชื่อไฟล์รูป Atlas ช่องท้อง]
-* [ ] **อินโฟกราฟิก:** [ใส่ชื่อไฟล์รูปสรุปขั้นตอน]
-
----
-
-## 📌 บทที่ 13 : เทคนิคกัวซาหลังและสะโพก
-[คำแนะนำ: บทนี้เน้นการคลายปวดหลัง สะบัก และสลักเพชรจม]
-
-### 1. ทฤษฎี (Theory)
-* **หลังส่วนบน:** [พิมพ์เทคนิคกัวซาหลังบน]
-* **ร่องสะบัก:** [พิมพ์เทคนิคการเซาะร่องสะบักอย่างปลอดภัย]
-* **หลังส่วนล่าง:** [พิมพ์เทคนิคคลายหลังล่าง/เอว]
-* **สะโพก:** [พิมพ์เทคนิคคลายกล้ามเนื้อสะโพก/ก้น]
-* **แนวกล้ามเนื้อ:** [พิมพ์ระบุแนวกล้ามเนื้อ Paraspinal]
-* **ลำดับการทำ:** [พิมพ์ลำดับการทำบนลงล่าง]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas หลัง:** [ใส่ชื่อไฟล์รูป Atlas แผ่นหลัง]
-* [ ] **Atlas สะโพก:** [ใส่ชื่อไฟล์รูป Atlas สะโพก]
-* [ ] **แนวเส้นมาตรฐาน:** [ใส่ชื่อไฟล์รูปแนวเส้นกัวซาแผ่นหลัง]
-
----
-
-## 📌 บทที่ 14 : เทคนิคกัวซาขาและเท้า
-[คำแนะนำ: บทนี้เน้นการคลายขาตึง น่องบวม และฝ่าเท้า]
-
-### 1. ทฤษฎี (Theory)
-* **ต้นขา:** [พิมพ์เทคนิคกัวซาต้นขาด้านหน้า/หลัง/ข้าง]
-* **เข่า:** [พิมพ์ข้อควรระวังรอบข้อเข่า]
-* **หน้าแข้ง:** [พิมพ์เทคนิคกัวซาข้างกระดูกหน้าแข้ง]
-* **น่อง:** [พิมพ์เทคนิคคลายน่องตึง]
-* **ข้อเท้า:** [พิมพ์เทคนิควนรอบข้อเท้า]
-* **หลังเท้า:** [พิมพ์เทคนิคกัวซาร่องร่องกระดูกหลังเท้า]
-* **ฝ่าเท้า:** [พิมพ์เทคนิคกดจุดและกัวซาฝ่าเท้า]
-* **นิ้วเท้า:** [พิมพ์เทคนิครีดปลาย นิ้วเท้า]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Atlas ขา:** [ใส่ชื่อไฟล์รูป Atlas ช่วงขา]
-* [ ] **Atlas เท้า:** [ใส่ชื่อไฟล์รูป Atlas ฝ่าเท้า]
-* [ ] **อินโฟกราฟิก 12 หน้า:** [ใส่ชื่อไฟล์คู่มืออินโฟกราฟิกช่วงขาและเท้า]
-
----
-
-## 📌 บทที่ 15 : Full Body Gua Sha Flow
-[คำแนะนำ: บทนี้เน้นการร้อยเรียงทักษะทั้งหมดเป็นคอร์สบำบัดเต็มตัวอย่างต่อเนื่อง]
-
-### 1. ทฤษฎี (Theory)
-* **ลำดับการทำทั้งร่างกาย:** [พิมพ์แผนผังการไหลของทรีตเมนต์ตั้งแต่หัวจรดเท้า]
-* **การจัดโปรแกรม:** [พิมพ์การออกแบบแพ็กเกจ 60 นาที / 90 นาที / 120 นาที]
-* **การบริหารเวลา:** [พิมพ์จัดสรรเวลาแต่ละจุด เช่น หลัง 20 นาที, ขา 20 นาที]
-* **การประเมินผล:** [พิมพ์การวัดความพึงพอใจหลังทำเสร็จ]
-* **การติดตามผล:** [พิมพ์ขั้นตอนการโทร/ไลน์ติดตามผลในวันถัดไป]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **Full Body Flow Atlas:** [ใส่ชื่อไฟล์ผัง Flow ใหญ่ทั้งตัว]
-* [ ] **Flow Chart:** [ใส่ชื่อไฟล์รูปผังขั้นตอนการทำงาน]
-* [ ] **ตารางลำดับการทำ:** [ใส่ชื่อไฟล์ตารางแจกแจงเวลาและจุด]
-
----
-
-## 📌 บทที่ 16 : การดูแลผู้รับบริการและการต่อยอดวิชาชีพ
-[คำแนะนำ: บทนี้เน้นการทำธุรกิจ การสร้างแบรนด์ การสื่อสาร และการสอนต่อ]
-
-### 1. ทฤษฎี (Theory)
-* **การวางโปรแกรมการรักษา:** [พิมพ์วิธีวางแผนดูแลต่อเนื่อง เช่น สัปดาห์ละ 1 ครั้ง]
-* **การให้คำแนะนำหลังทำ:** [พิมพ์ข้อควรปฏิบัติหลังกัวซา เช่น ดื่มน้ำอุ่น, ห้ามอาบน้ำเย็นทันที]
-* **การจัดคอร์สดูแลต่อเนื่อง:** [พิมพ์วิธีเสนอคอร์สดูแลระยะยาว]
-* **การบริการระดับมืออาชีพ:** [พิมพ์มาตรฐานการบริการระดับสปาหรู]
-* **การสร้างธุรกิจ:** [พิมพ์การตั้งราคา คอนเทนต์การตลาด และช่องทางขาย]
-* **การสอนและการถ่ายทอดองค์ความรู้:** [พิมพ์แนวทางการต่อยอดเป็นครูผู้สอน/Master]
-
-### 2. ภาพประกอบและสื่อการเรียน (Visual Assets)
-* [ ] **แผนการดูแล:** [ใส่ชื่อไฟล์เอกสารแบบฟอร์ม]
-* [ ] **ตารางโปรแกรม:** [ใส่ชื่อไฟล์ตารางคอร์ส]
-* [ ] **อินโฟกราฟิกการบริการ:** [ใส่ชื่อไฟล์รูปมาตรฐานการบริการ]
-* [ ] **แผนผังการเติบโตของธุรกิจ:** [ใส่ชื่อไฟล์รูปแผนผัง Career Path]
-
-# 🌿 SAMINTRA GUA SHA ACADEMY
-## ยกระดับศาสตร์กัวซาบำบัดด้วยสัมผัสแห่งสติและพลังงาน สู่การเป็นมืออาชีพระดับ Master
-
-> **"สัมผัสเบา...แต่เข้าถึงความผ่อนคลายลึก ผสานจิตสำนึก กายวิภาค และศาสตร์กัวซาอย่างสมบูรณ์แบบ"**
-
----
-
-### 🎬 [พื้นที่สำหรับใส่วิดีโอแนะนำคอร์ส หรือภาพ Banner หน้าปก]
-*(คำแนะนำ: ใส่คลิปวิดีโอสั้น 1–2 นาที บรรยากาศการเรียน การลงน้ำหนักมืออย่างนุ่มนวล เพลงบรรเลงเบาๆ สไตล์สปาหรูหรา หรือรูปภาพไฮไลต์การเรียนกัวซา)*
-
----
-
-### ✨ ไฮไลต์จุดเด่นของหลักสูตรนี้
-* **15 ปีแห่งประสบการณ์กัวซาใบหน้า และ 4 ปีแห่งศาสตร์กัวซาเรือนร่าง** กลั่นกรองเป็นหลักสูตรที่ทำได้จริงและเห็นผลลัพธ์ชัดเจน
-* **หัวใจแห่งการบำบัด 3 ประการ (Love • Compassion • Mindfulness)** ปรับสมดุลทั้งผู้ให้และผู้รับบริการ
-* **ครอบคลุม 16 บทเรียนเจาะลึก** ตั้งแต่ฐานจิต กายวิภาคศาสตร์ เทคนิค Full Body Flow ไปจนถึงการต่อยอดธุรกิจ
-* **เรียนจบพร้อมรับใบประกาศนียบัตร (Certificate)** สร้างความน่าเชื่อถือระดับมืออาชีพ
-
----
-
-👇 **[ ปุ่มกดสมัครเรียน / ทักแชตสอบถามรายละเอียด ]**
-
----
-
-## 🛑 คุณกำลังเจอปัญหาเหล่านี้ในการทำงานกัวซาและสปาอยู่หรือไม่?
-
-* **ออกแรงเยอะ แต่ผู้รับบริการยังรู้สึกเกร็งตึง:** ยิ่งลงน้ำหนักมาก ผู้รับบริการยิ่งเจ็บและเกร็งต้าน ทำให้ผลลัพธ์ไม่เป็นไปตามที่หวัง
-* **ผู้บำบัดเหนื่อยล้าและบาดเจ็บเอง:** ออกแรงขูดจนปวดข้อ นิ้วล็อก หรือสูญเสียพลังงานหลังจบเคส
-* **ขาดความรู้ด้านกายวิภาคที่แม่นยำ:** ไม่มั่นใจทิศทางการเดินเส้น กลัวลงน้ำหนักผิดจุด หรือไม่กล้าให้บริการในจุดที่ละเอียดอ่อน
-* **ไม่มีจุดขายที่แตกต่าง:** บริการเหมือนร้านทั่วไป ทำให้ต้องแข่งขันด้วยราคา และยากที่จะเติบโตเชิงธุรกิจ
-
----
-
-## ✨ เปลี่ยนทุกอุปสรรค สู่สัมผัสแห่งความผ่อนคลายลึกด้วย SAMINTRA METHOD
-
-หลักสูตรนี้ถูกออกแบบมาเพื่อแก้ปัญหาอย่างตรงจุด เปลี่ยนจากการ "ใช้แรงขูด" มาเป็นการ "ใช้สติและพลังงานนำพา":
-
-* **ผ่อนคลายลึกโดยไม่สร้างความเจ็บปวด:** ด้วยเทคนิคการลงน้ำหนักที่พอดีและการทำงานร่วมกับชั้นพังผืด (Fascia)
-* **ผู้บำบัดเบากาย เบาใจ:** เรียนรู้การวางฐานจิต (Love • Compassion • Mindfulness) ปกป้องพลังงานของผู้บำบัด ไม่เหนื่อยล้าหลังทำงาน
-* **แม่นยำทุกแนวเส้น:** ด้วย Atlas ภาพประกอบกายวิภาคศาสตร์และทิศทางขูดมาตรฐาน ครอบคลุมทุกส่วนของร่างกาย
-* **ยกระดับเป็นบริการระดับ Zen-Luxury:** สร้างมูลค่าให้วิชาชีพ ตั้งราคาได้อย่างภาคภูมิใจ และครองใจผู้รับบริการระยะยาว
-
----
-
-👇 **[ ปุ่มกดสมัครเรียน / ทักแชตสอบถามรายละเอียด ]**
-
----
-
-## 🎁 สิ่งที่คุณจะได้รับเมื่อสมัครเรียนในหลักสูตรนี้ (Course Deliverables & Bonuses)
-
-1. **เข้าถึงเนื้อหาการเรียนการสอนครบทั้ง 16 บทเรียน:**
-   * สิทธิ์เข้าเรียนทบทวนเนื้อหาได้ตลอดเวลา ไม่จำกัดระยะเวลา
-2. **ใบประกาศนียบัตรรับรองจาก SAMINTRA GUA SHA ACADEMY:**
-   * ใบประกาศฯ การันตีความเชี่ยวชาญ เพิ่มความน่าเชื่อถือหน้าร้านและการต่อยอดวิชาชีพ
-3. **ชุดคู่มือ Atlas กายวิภาคศาสตร์และทิศทางการเดินเส้น (PDF ความละเอียดสูง):**
-   * คลังภาพอินโฟกราฟิกและแผนผังแนวเส้นสำหรับเปิดใช้อ้างอิงขณะทำงานจริง
-4. **สิทธิ์เข้ากลุ่มปิดสังคมผู้บำบัด (Private Community):**
-   * พื้นที่สำหรับส่งการบ้าน ปรึกษาเคสผู้รับบริการจริง และอัปเดตเทคนิคใหม่ๆ กับอาจารย์ผู้สอน
-5. **โบนัสพิเศษ : แผนผังและแนวทางการสร้างธุรกิจสปาแบบ Zen-Luxury:**
-   * สื่อสำหรับนำไปปรับใช้ทำการตลาด วางโปรแกรมบริการ และเทคนิคการสื่อสารปิดการขายคอร์สดูแลต่อเนื่อง
-
----
-
-👇 **[ ปุ่มกดสมัครเรียน / ทักแชตสอบถามรายละเอียด ]**
-
----
-
-## 🏆 ผู้ถ่ายทอดองค์ความรู้ (Instructor Profile)
-
-### อาจารย์ผู้ก่อตั้ง SAMINTRA GUA SHA ACADEMY
-* **ผู้เชี่ยวชาญด้านกัวซาใบหน้า (Facial Gua Sha)** ด้วยประสบการณ์ตรงกว่า 15 ปี
-* **ผู้เชี่ยวชาญด้านกัวซาเรือนร่าง (Body Gua Sha)** ด้วยประสบการณ์กว่า 4 ปี
-* **ผู้สร้างสรรค์ศาสตร์ Samintra Method** ที่มุ่งเน้นการบำบัดแบบองค์รวม ผสานพลังงาน ฐานจิต และกายวิภาคศาสตร์
-
-> *"เป้าหมายของเรา ไม่ใช่เพียงแค่การสอนเทคนิคการขูดกัวซา แต่คือการส่งมอบหัวใจของการเป็นผู้บำบัดมืออาชีพ ที่สามารถเยียวยาผู้อื่นไปพร้อมกับการดูแลพลังงานของตนเองได้อย่างยั่งยืน"*
-
----
-
-### 💬 เสียงตอบรับและความประทับใจจากผู้เรียน / ผู้รับบริการ (Reviews & Before-After)
-*(พื้นที่สำหรับวางภาพผลลัพธ์ Before-After การกระชับผิว/คลายสภาวะเกร็งตึง หรือข้อความความประทับใจจากลูกศิษย์)*
-
----
-
-👇 **[ ปุ่มกดสมัครเรียน / ทักแชตสอบถามรายละเอียด ]**
-
----
-
-## 💎 สิทธิ์การเรียนและข้อเสนอพิเศษ (Pricing & Enrollment Options)
-
-### 📌 แพ็กเกจเรียนกัวซาบำบัดระดับมืออาชีพ (Full Course)
-* **ราคาปกติ:** <s>[ใส่ราคาปกติ เช่น 15,900]</s> บาท
-* **ราคาโปรโมชันพิเศษ (เฉพาะรอบนี้):** **[ใส่ราคาโปรโมชัน เช่น 8,900]** บาทเท่านั้น
-
-*(หมายเหตุ: สามารถรับชำระผ่านโอนสแกนคิวอาร์โค้ด หรือผ่อนชำระผ่านบัตรเครดิต)*
-
----
-
-👉 **[ กดที่นี่เพื่อสมัครเรียนทันทีผ่านระบบอัตโนมัติ ]**  
-👉 **[ ทักแชต LINE OA เพื่อสอบถาม/สำรองที่นั่ง ]**
-
----
-
-## ❓ คำถามที่พบบ่อย (Frequently Asked Questions - FAQ)
-
-* **Q: ไม่มีพื้นฐานด้านสปาหรือนวดมาก่อน สามารถเรียนได้ไหม?**
-  * **A:** เรียนได้แน่นอนครับ หลักสูตรนี้ปูพื้นฐานตั้งแต่ฐานจิต กายวิภาคศาสตร์เบื้องต้น ไปจนถึงการลงมือปฏิบัติจริงทีละขั้นตอนแบบจับมือทำ
-
-* **Q: เรียนจบแล้วจะได้รับใบประกาศนียบัตรหรือไม่?**
-  * **A:** ผู้ที่เรียนครบตามโครงสร้างหลักสูตรและผ่านการประเมินทักษะ จะได้รับใบประกาศนียบัตรรับรองจาก SAMINTRA GUA SHA ACADEMY ครับ
-
-* **Q: สามารถกลับมาเรียนทบทวนย้อนหลังได้หรือไม่?**
-  * **A:** สามารถเข้าดูวิดีโอและเอกสารประกอบการเรียนเพื่อทบทวนย้อนหลังได้ตลอดเวลา ไม่มีการตัดสิทธิ์ครับ
-
-* **Q: หากติดขัดเรื่องเทคนิคระหว่างปฏิบัติงานจริง สามารถสอบถามได้ที่ไหน?**
-  * **A:** สามารถพิมพ์สอบถามเคสหรือส่งคลิปวิดีโอมาปรึกษาอาจารย์ในกลุ่มปิด (Private Community) ได้ตลอดครับ
-
----
-
-📞 **สอบถามข้อมูลเพิ่มเติม หรือปรึกษาการสมัครเรียน:**  
-* **LINE Official Account:** [ใส่ลิงก์หรือ LINE ID]  
-* **Facebook Page:** [ใส่ชื่อเพจ]
-* **TikTok:** [ใส่ลิงก์หรือ @Username TikTok]
