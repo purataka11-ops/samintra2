@@ -71,6 +71,12 @@
             letter-spacing: 1px;
         }
 
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
         .btn-header {
             background-color: var(--gold-accent);
             color: var(--white);
@@ -80,10 +86,30 @@
             font-weight: 500;
             font-size: 0.9rem;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-header:hover {
             background-color: var(--gold-hover);
+        }
+
+        .btn-login {
+            background-color: transparent;
+            color: var(--sapphire-dark);
+            border: 1px solid var(--sapphire-dark);
+            padding: 7px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: var(--sapphire-dark);
+            color: var(--white);
         }
 
         /* Section Styling */
@@ -346,7 +372,10 @@
     <header>
         <div class="container nav-container">
             <div class="logo">SAMINTRA ACADEMY</div>
-            <a href="#register" class="btn-header">สมัครเรียน</a>
+            <div class="nav-buttons">
+                <button onclick="loginWithGoogle()" class="btn-login">เข้าสู่ระบบนักเรียน</button>
+                <a href="#register" class="btn-header">สมัครเรียน</a>
+            </div>
         </div>
     </header>
 
@@ -360,7 +389,7 @@
                 ก้าวข้ามการจำท่าทาง สู่ศิลปะแห่งการอ่านร่างกายอย่างลึกซึ้ง ถ่ายทอดน้ำหนักมืออย่างแม่นยำ และสร้าง "สัมผัสแห่งการเยียวยา" ที่ผู้รับบริการไว้วางใจตั้งแต่วินาทีแรก
             </p>
             
-            <img src="<span class='edit-red'>https://via.placeholder.com/1000x450?text=ใส่+URL+รูปภาพครูจูนสปาหรูที่นี่</span>" alt="SAMINTRA GUA SHA" class="hero-media">
+            <img src="https://via.placeholder.com/1000x450?text=SAMINTRA+GUA+SHA+ACADEMY" alt="SAMINTRA GUA SHA" class="hero-media">
         </section>
 
         <!-- 2. PROBLEM SECTION -->
@@ -439,7 +468,6 @@
                 <li style="margin-bottom: 10px;">✦ การประเมินโครงสร้างและอ่านสภาวะตึงเกร็งก่อนลงมือ</li>
                 <li style="margin-bottom: 10px;">✦ ศิลปะการใช้องศาอุปกรณ์เพื่อสลายพังผืดโดยไม่ต้องเค้นแรงกาย</li>
                 <li style="margin-bottom: 10px;">✦ การจัด Flow บำบัด 30-45 นาที เพื่อสร้างเป็น Signature Treatment</li>
-                <li style="margin-bottom: 10px;"><span class="edit-red">[เติมไฮไลต์พิเศษเฉพาะคอร์สคอบ่าไหล่ของคุณตรงนี้]</span></li>
             </ul>
         </section>
 
@@ -541,7 +569,6 @@
                     <ul style="padding-left: 20px; margin-top: 8px;">
                         <li>คู่มือภาพ Atlas แนวพังผืด คอ บ่า ไหล่ (<span class="edit-red">มูลค่า 590.-</span>)</li>
                         <li>สิทธิ์ส่งการบ้านและรับคำแนะนำจากครูจูน (<span class="edit-red">1 เดือนเต็ม</span>)</li>
-                        <li><span class="edit-red">[ระบุของแถมเพิ่มเติม เช่น หินกัวซา หรือส่วนลดคอร์สเต็ม]</span></li>
                     </ul>
                 </div>
             </div>
@@ -569,8 +596,7 @@
             <p><strong>SAMINTRA GUA SHA ACADEMY</strong></p>
             <p style="margin: 8px 0;">“ถ่ายทอดความเข้าใจในสรีระ ผ่านสัมผัสอันอ่อนโยน มีสติ และทรงคุณค่า”</p>
             <p style="font-size: 0.78rem; opacity: 0.8; margin-top: 15px;">
-                © 2026 SAMINTRA GUA SHA. All Rights Reserved. <br>
-                <span class="edit-red">[นโยบายความเป็นส่วนตัว PDPA | ข้อกำหนดการใช้งาน]</span>
+                © 2026 SAMINTRA GUA SHA. All Rights Reserved.
             </p>
         </footer>
 
@@ -582,7 +608,7 @@
             <div class="sticky-text">
                 <strong>คอร์สเปิดตัว คอ บ่า ไหล่</strong> ราคาพิเศษเพียง <span class="edit-red">1,290.-</span> (จากปกติ <span class="edit-red">3,500.-</span>)
             </div>
-            <a href="<span class='edit-red'>https://line.me/ti/p/@YOUR_LINE_ID</span>" target="_blank" class="btn-line-sticky">
+            <a href="https://line.me" target="_blank" class="btn-line-sticky">
                 💬 สมัคร/สอบถามทาง LINE
             </a>
         </div>
@@ -604,139 +630,66 @@
             });
         });
     </script>
-</body>
-</html>
 
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAMINTRA GUA SHA ACADEMY</title>
-  <style>
-    :root {
-      --bg-ivory: #FDFBF7;
-      --text-dark: #2C2523;
-      --gold-accent: #C5A059;
-      --gold-hover: #B08C45;
-      --soft-brown: #8C7A6B;
-      --white: #FFFFFF;
-      --light-gold: rgba(197, 160, 89, 0.12);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: var(--bg-ivory);
-      color: var(--text-dark);
-      line-height: 1.6;
-      padding-bottom: 80px;
-    }
-    header {
-      background: var(--white);
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .logo { font-size: 1.2rem; font-weight: bold; color: var(--text-dark); letter-spacing: 1px; }
-    .hero {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(180deg, #F9F5ED 0%, var(--bg-ivory) 100%);
-    }
-    .hero h1 { font-size: 2.2rem; color: var(--gold-accent); margin-bottom: 15px; }
-    .hero p { font-size: 1.1rem; color: var(--soft-brown); max-width: 600px; margin: 0 auto 25px; }
-    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-    .card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      border: 1px solid rgba(197, 160, 89, 0.2);
-    }
-    .card h2 { color: var(--gold-accent); font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid var(--light-gold); padding-bottom: 8px; }
-    .card h3 { color: var(--soft-brown); font-size: 1.2rem; margin: 15px 0 10px; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-    li::before { content: "•"; color: var(--gold-accent); position: absolute; left: 0; font-weight: bold; }
-    .sticky-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: var(--white);
-      padding: 12px 20px;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-    .price-tag { font-size: 1.1rem; }
-    .price-tag span { font-size: 1.4rem; font-weight: bold; color: #D9534F; }
-    .btn-line {
-      background-color: #06C755;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(6, 199, 85, 0.3);
-    }
-  </style>
-</head>
-<body>
+    <!-- FIREBASE AUTHENTICATION & FIRESTORE INTEGRATION -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  <header>
-    <div class="logo">SAMINTRA ACADEMY</div>
-  </header>
+      // 1. คอนฟิก Firebase ของโปรเจกต์ articulate-nova-4f6jr
+      const firebaseConfig = {
+        apiKey: "AIzaSyBMWhZ23E-DcS74WTt905-jDPw_Vr_ab5s",
+        authDomain: "articulate-nova-4f6jr.firebaseapp.com",
+        projectId: "articulate-nova-4f6jr",
+        storageBucket: "articulate-nova-4f6jr.firebasestorage.app",
+        messagingSenderId: "562332991939",
+        appId: "1:562332991939:web:165a1fd67b1cb86fa33d76"
+      };
 
-  <section class="hero">
-    <h1>SAMINTRA GUA SHA ACADEMY</h1>
-    <p>ถ่ายทอดความรู้ศาสตร์กัวซาอย่างสมบูรณ์แบบ ยกระดับวิชาชีพด้วยเทคนิคเฉพาะทาง</p>
-  </section>
+      // 2. เริ่มต้นเชื่อมต่อ Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const provider = new GoogleAuthProvider();
 
-  <div class="container">
-    
-    <div class="card">
-      <h2>หลักสูตรอบรมกัวซาเพื่อสุขภาพและบรรเทาอาการ</h2>
-      <p>เรียนรู้โครงสร้างกล้ามเนื้อ สายเส้นเอ็น และระบบไหลเวียนโลหิต พร้อมเทคนิคการลงน้ำหนักที่ถูกต้อง Safe & Effective</p>
-    </div>
+      // 3. ฟังก์ชันระบบ เข้าสู่ระบบ (Log-in) ด้วย Google
+      window.loginWithGoogle = async function() {
+        try {
+          const result = await signInWithPopup(auth, provider);
+          const user = result.user;
+          console.log("เข้าสู่ระบบสำเร็จ:", user.displayName);
+          checkUserEnrollment(user.uid);
+        } catch (error) {
+          console.error("เกิดข้อผิดพลาดในการล็อกอิน:", error.message);
+          alert("ไม่สามารถเข้าสู่ระบบได้ กรุณาลองใหม่อีกครั้ง");
+        }
+      };
 
-    <div class="card">
-      <h2>โครงสร้างเนื้อหาหลักสูตร</h2>
-      <h3>บทที่ 1: ทฤษฎีพื้นฐานและโครงสร้างร่างกาย</h3>
-      <ul>
-        <li>โครงสร้างชั้นผิวหนัง กล้ามเนื้อ และพาสเชีย (Fascia)</li>
-        <li>ระบบเส้นเลือดและระบบน้ำเหลืองที่สำคัญ</li>
-        <li>ข้อควรระวังและบริเวณที่ห้ามลงน้ำหนักแรง</li>
-      </ul>
+      // 4. ฟังก์ชันเช็กสิทธิ์นักเรียนในฐานข้อมูล (Firestore)
+      async function checkUserEnrollment(uid) {
+        const userRef = doc(db, "students", uid);
+        const userSnap = await getDoc(userRef);
 
-      <h3>บทที่ 2: การประเมินร่างกายก่อนการนวด</h3>
-      <ul>
-        <li>การสังเกตท่าทาง สมดุลคอ คาง และไหล่</li>
-        <li>การคลำตรวจจุดตึงเกร็งและ Trigger Points</li>
-        <li>การวางแผนการปรับสมดุลรายบุคคล</li>
-      </ul>
-    </div>
+        if (userSnap.exists() && userSnap.data().isEnrolled) {
+          // หากได้รับอนุมัติแล้ว -> ส่งไปหน้าห้องเรียน Google Classroom
+          alert("ยืนยันสิทธิ์สำเร็จ! กำลังนำคุณเข้าสู่ห้องเรียน Samintra Gua Sha Academy");
+          window.location.href = "YOUR_GOOGLE_CLASSROOM_INVITE_LINK";
+        } else {
+          // หากยังไม่ได้อนุมัติสิทธิ์ -> ให้ทักแชท LINE OA เพื่อแจ้งชำระเงิน
+          alert("บัญชีของคุณยังไม่ได้อนุมัติสิทธิ์เข้าเรียน กรุณาส่งสลิปชำระเงินทาง LINE OA ครับ");
+          window.location.href = "https://line.me";
+        }
+      }
 
-    <div class="card" style="text-align: center;">
-      <h2>สอบถามรายละเอียด & สมัครเรียน</h2>
-      <p style="margin-bottom: 20px;">รับจำนวนจำกัดต่อรอบ เพื่อการดูแลอย่างทั่วถึง</p>
-      <a href="https://line.me" class="btn-line" target="_blank">สมัคร / สอบถามทาง LINE</a>
-    </div>
-
-  </div>
-
-  <div class="sticky-bar">
-    <div class="price-tag">ราคาพิเศษ <span>1,290.-</span> <small><s style="color:#999;">3,500.-</s></small></div>
-    <a href="https://line.me" class="btn-line" target="_blank">สมัครเรียน LINE</a>
-  </div>
-
+      // 5. ตรวจสอบสิทธิ์อัตโนมัติเมื่อมีการโหลดหน้าเว็บ
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("ผู้ใช้ล็อกอินอยู่:", user.email);
+        } else {
+          console.log("ผู้ใช้ยังไม่ได้ล็อกอิน");
+        }
+      });
+    </script>
 </body>
 </html>
